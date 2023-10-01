@@ -53,7 +53,7 @@ pipeline{
             {
                 sh 'wget https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.24/bin/apache-tomcat-8.5.24.tar.gz'
                 sh 'tar -xzvf apache-tomcat-8.5.24.tar.gz'
-                sh 'sudo chown -R ubantu:ubantu apache-tomcat-8.5.24'
+                sh 'sudo chown -R ubuntu:ubuntu apache-tomcat-8.5.24'
                 sh 'sudo cp tomcat-users.xml apache-tomcat-8.5.24/conf/tomcat-users.xml'
                 sh 'sudo cp context.xml apache-tomcat-8.5.24/webapps/manager/META-INF/context.xml'
                 sh 'sudo sed -i "s/8080/8081/g" apache-tomcat-8.5.24/conf/server.xml'
