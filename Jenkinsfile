@@ -4,7 +4,7 @@ pipeline{
         stage("Installed Maven Build")
         {
             steps{
-                sh 'tar -xvzf /var/lib/jenkins/workspace/test/apache-maven-3.9.4-bin.tar.gz'
+                //sh 'tar -xvzf /var/lib/jenkins/workspace/test/apache-maven-3.9.4-bin.tar.gz'
             }
         }
         stage("Compiling Addressbook Application")
