@@ -39,5 +39,13 @@ pipeline{
                 }
             }
         }
+        stage("Tomcat Prerequisites Installation")
+        {
+            steps
+            {
+                sh 'sudo apt update'
+                sh 'sudo apt install openjdk-17-jre -y'
+            }
+        }
     }
 }
