@@ -9,7 +9,7 @@ pipeline{
                 //sh 'tar -xvzf /var/lib/jenkins/workspace/test/apache-maven-3.9.4-bin.tar.gz'
             }
         }
-        stage("Compiling Addressbook Application")
+        stage("Compiling Application")
         {
             steps
             {
@@ -19,7 +19,7 @@ pipeline{
                 }
             }
         }
-        stage("Test Addressbook Application")
+        stage("Testing Application")
         {
             steps
             {
@@ -29,7 +29,7 @@ pipeline{
                 }
             }
         }
-        stage("Package Addressbook Application")
+        stage("Packaging Application")
         {
             steps
             {
@@ -59,7 +59,7 @@ pipeline{
                 sh 'sudo sed -i "s/8080/8081/g" apache-tomcat-8.5.24/conf/server.xml'
             }
         }
-        stage("Deploy Address book application to TomcatServer")
+        stage("Deploy WAR file to Tomcat Server")
         {
             steps{
                 sh 'sudo cp addressbook/addressbook_main/target/addressbook.war apache-tomcat-8.5.24/webapps'
