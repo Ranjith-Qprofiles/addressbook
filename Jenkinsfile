@@ -1,14 +1,10 @@
 pipeline{
-    agent any
+    agent any 
     stages{
-        // stage("Check Out"){
-        //     steps{
-        //         git url: "https://github.com/Ranjith-Qprofiles/DevOpsClassCodes.git"
-        //     }
-        // }
-        stage("Build"){
+        stage("Installed Maven Build")
+        {
             steps{
-                echo "Building A Job"
+                echo "Installed Maven Build"
             }
         }
     }
