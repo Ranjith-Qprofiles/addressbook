@@ -47,5 +47,13 @@ pipeline{
                 sh 'sudo apt install openjdk-17-jre -y'
             }
         }
+        stage("Install Apache Tomcat Server")
+        {
+            steps
+            {
+                sh 'wget https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.24/bin/apache-tomcat-8.5.24.tar.gz'
+                sh 'tar -xzvf apache-tomcat-8.5.24.tar.gz'
+            }
+        }
     }
 }
