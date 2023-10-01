@@ -7,15 +7,15 @@ pipeline{
                 sh 'tar -xvzf /var/lib/jenkins/workspace/test/apache-maven-3.9.4-bin.tar.gz'
             }
         }
-        // stage("Compiling Addressbook Application")
-        // {
-        //     steps
-        //     {
-        //         dir('/var/lib/jenkins/workspace/addressbook_pipeline_job/addressbook')
-        //         {
-        //          sh '/   
-        //         }
-        //     }
-        // }
+        stage("Compiling Addressbook Application")
+        {
+            steps
+            {
+                dir('/var/lib/jenkins/workspace/addressbook_pipeline_job/addressbook/addressbook_main')
+                {
+                 sh '/var/lib/jenkins/workspace/addressbook_pipeline_job/apache-maven-3.9.4/bin/mvn compile'
+                }
+            }
+        }
     }
 }
