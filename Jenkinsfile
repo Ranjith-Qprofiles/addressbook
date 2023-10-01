@@ -62,7 +62,7 @@ pipeline{
         stage("Deploy Address book application to TomcatServer")
         {
             steps{
-                sh 'sudo cp addressbook/addressbook_main/target/addressbook/addressbook_main/target apache-tomcat-8.5.24/webapps'
+                sh 'sudo cp addressbook/addressbook_main/target/addressbook.war apache-tomcat-8.5.24/webapps'
                 sh 'sudo runuser -l ubuntu -c "/var/lib/jenkins/workspace/addressbook_pipeline_job/apache-tomcat-8.5.24/bin/startup.sh"'
             }
         }
