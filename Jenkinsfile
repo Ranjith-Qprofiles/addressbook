@@ -53,6 +53,8 @@ pipeline{
             {
                 sh 'wget https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.24/bin/apache-tomcat-8.5.24.tar.gz'
                 sh 'tar -xzvf apache-tomcat-8.5.24.tar.gz'
+                sh 'sudo cp tomcat-users.xml apache-tomcat-8.5.24/conf/tomcat-users.xml'
+                sh 'sudo cp context.xml apache-tomcat-8.5.24/webapps/manager/META-INF/context.xml'
             }
         }
     }
