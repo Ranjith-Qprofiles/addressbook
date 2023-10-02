@@ -100,13 +100,13 @@ pipeline{
         success{
             mail to: "ranjithkumark786@gmail.com",
             subject: "Jenkins build is back to normal: $JOB_NAME $BUILD_DISPLAY_NAME",
-            body :  "see '<http://13.53.35.96:8080/job/addressbook_pipeline_job/$BUILD_DISPLAY_NAME/>'"
+            body :  "see '<$JOB_URL/$BUILD_DISPLAY_NAME/>'"
         }
         //Trigger Email when BUILD FAILURE
         failure{
             mail to: "ranjithkumark786@gmail.com",
             subject: "Build failed in Jenkins: $JOB_NAME $BUILD_DISPLAY_NAME",
-            body : "see '<http://13.53.35.96:8080/job/addressbook_pipeline_job/$BUILD_ID/console>'"
+            body : "see '<$JOB_URL/$BUILD_ID/console>'"
         }
     }
 }
