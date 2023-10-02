@@ -78,7 +78,7 @@ pipeline{
         failure{
             mail to: "ranjithkumark786@gmail.com",
             subject: "Build failed in Jenkins: $JOB_NAME $BUILD_DISPLAY_NAME",
-            body : "see <$BUILD_URL>"
+            body : "see '<http://13.53.35.96:8080/job/addressbook_pipeline_job/$BUILD_ID/console>'"
         }
     }
 }
