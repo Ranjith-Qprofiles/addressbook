@@ -73,7 +73,7 @@ pipeline{
         success{
             mail to: "ranjithkumark786@gmail.com",
             subject: "Jenkins build is back to normal: $JOB_NAME $BUILD_DISPLAY_NAME",
-            body : "see <$BUILD_URL>"
+            body :  "see '<http://13.53.35.96:8080/job/addressbook_pipeline_job/$BUILD_DISPLAY_NAME/>'"
         }
         failure{
             mail to: "ranjithkumark786@gmail.com",
