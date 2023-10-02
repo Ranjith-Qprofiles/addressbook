@@ -5,7 +5,7 @@ pipeline{
         {
            steps 
             {
-                echo "Installed Maven Build"
+                eco "Installed Maven Build"
                 //sh 'tar -xvzf /var/lib/jenkins/workspace/test/apache-maven-3.9.4-bin.tar.gz'
             }
         }
@@ -15,7 +15,7 @@ pipeline{
         //     {
         //         dir('/var/lib/jenkins/workspace/addressbook_pipeline_job/addressbook/addressbook_main')
         //         {
-        //              sh '/var/lib/jenkins/workspace/addressbook_pipeline_job/apache-maven-3.9.4/bin/mvn compil'
+        //              sh '/var/lib/jenkins/workspace/addressbook_pipeline_job/apache-maven-3.9.4/bin/mvn compile'
         //         }
         //     }
         // }
