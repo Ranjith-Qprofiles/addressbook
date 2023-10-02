@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage("Installed Maven Build")
         {
-            steps
+            
             {
                 echo "Installed Maven Build"
                 //sh 'tar -xvzf /var/lib/jenkins/workspace/test/apache-maven-3.9.4-bin.tar.gz'
