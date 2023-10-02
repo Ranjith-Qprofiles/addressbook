@@ -72,7 +72,7 @@ pipeline{
     {
         always{
             mail to: "ranjithkumark786@gmail.com",
-            subject: "Build failed in Jenkins: $JOB_NAME BUILD_DISPLAY_NAME",
+            subject: "Build failed in Jenkins: $JOB_NAME $BUILD_DISPLAY_NAME",
             body : "see $BUILD_URL"
         }
     }
