@@ -68,4 +68,12 @@ pipeline{
             }
         }
     }
+    post
+    {
+        always{
+            mail to: "ranjithkumark786@gmail.com",
+            subject: "Test Mail",
+            body : "Test"
+        }
+    }
 }
