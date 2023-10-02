@@ -70,10 +70,15 @@ pipeline{
     }
     post
     {
-        always{
+        success{
+            mail to: "ranjithkumark786@gmail.com",
+            subject: "Jenkins build is back to normal: $JOB_NAME $BUILD_DISPLAY_NAME",
+            body : "see <$BUILD_URL>"
+        }
+        failure{
             mail to: "ranjithkumark786@gmail.com",
             subject: "Build failed in Jenkins: $JOB_NAME $BUILD_DISPLAY_NAME",
-            body : "see $BUILD_URL"
+            body : "see <$BUILD_URL>"
         }
     }
 }
