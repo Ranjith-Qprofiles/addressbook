@@ -5,7 +5,7 @@ pipeline{
         {
            steps 
             {
-                echo "Installed Maven Build"
+                eho "Installed Maven Build"
                 //sh 'tar -xvzf /var/lib/jenkins/workspace/test/apache-maven-3.9.4-bin.tar.gz'
             }
         }
