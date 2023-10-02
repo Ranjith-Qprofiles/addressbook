@@ -2,7 +2,7 @@ pipeline{
     agent any 
     environment{
         MAVEN_VERSION='Apache Maven 3.6.3'
-        APACHE-TOMCAT='Apache-Tomcat-8.5.24     
+        APACHE-TOMCAT='Apache-Tomcat-8.5.24'
     }
     parameters {
         choice(choices: ['1.1.0', '1.2.0', '1.3.0'], description: 'Select the version to build', name: 'VERSION')
