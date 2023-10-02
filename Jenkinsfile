@@ -5,7 +5,7 @@ pipeline{
         // APACHE-TOMCAT='Apache-Tomcat-8.5.24     
     }
     parameters {
-        // choice(choices: ['1.1.0', '1.2.0', '1.3.0'], description: 'Select the version to build', name: 'VERSION')
+        choice(choices: ['1.1.0', '1.2.0', '1.3.0'], description: 'Select the version to build', name: 'VERSION')
         booleanParam(defaultValue: true, description: 'Parameter Selected the Execute Maven Job ', name: 'executeMavenStage')
     }
     stages{
