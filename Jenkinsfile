@@ -72,8 +72,8 @@ pipeline{
     {
         always{
             mail to: "ranjithkumark786@gmail.com",
-            subject: "Test Mail",
-            body : "Build failed in Jenkins: $JOB_NAME $BUILD_ID "
+            subject: "Build failed in Jenkins: $JOB_NAME BUILD_DISPLAY_NAME",
+            body : "see $BUILD_URL"
         }
     }
 }
