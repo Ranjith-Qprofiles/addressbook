@@ -1,9 +1,11 @@
 pipeline{
     agent any 
+    //Declaration of Environment Variables
     environment{
         MAVEN_VERSION='Apache Maven 3.6.3'
         APACHE_TOMCAT='Apache-Tomcat-8.5.24'
     }
+    //Allows the user to provide parameters for a build  
     parameters {
         choice(choices: ['1.1.0', '1.2.0', '1.3.0'], description: 'Select the version to build', name: 'VERSION')
         booleanParam(defaultValue: true, description: 'executeMavenStage checked then Execute Installed Maven Build Stage ', name: 'executeMavenStage')
@@ -11,6 +13,7 @@ pipeline{
     stages{
         stage("Installed Maven Build")
         {
+            //When I checkbox "executeMavenStage" then only execute this stage
             when{
                 expression{
                     params.executeMavenStage
@@ -27,7 +30,8 @@ pipeline{
         stage("Compiling Application")
         {
             steps
-            {
+            {   
+                //Go Inside directory, compile the code 
                 dir('/var/lib/jenkins/workspace/addressbook_pipeline_job/addressbook/addressbook_main')
                 {
                      sh '/var/lib/jenkins/workspace/addressbook_pipeline_job/apache-maven-3.9.4/bin/mvn compile'
@@ -38,6 +42,7 @@ pipeline{
         {
             steps
             {
+                //Go Inside directory, test the code
                 dir('/var/lib/jenkins/workspace/addressbook_pipeline_job/addressbook/addressbook_main')
                 {
                     sh '/var/lib/jenkins/workspace/addressbook_pipeline_job/apache-maven-3.9.4/bin/mvn test'
@@ -48,6 +53,7 @@ pipeline{
         {
             steps
             {
+                //Go Inside directory, package the code
                 dir('/var/lib/jenkins/workspace/addressbook_pipeline_job/addressbook/addressbook_main')
                 {
                     sh '/var/lib/jenkins/workspace/addressbook_pipeline_job/apache-maven-3.9.4/bin/mvn package'
@@ -58,6 +64,7 @@ pipeline{
         {
             steps
             {
+                //Tomcat Prerequisites Installation
                 sh 'sudo apt update'
                 sh 'sudo apt install openjdk-17-jre -y'
             }
@@ -66,6 +73,7 @@ pipeline{
         {
             steps
             {
+                //Installing Apache-tomcat-8.5.24
                 sh 'wget https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.24/bin/apache-tomcat-8.5.24.tar.gz'
                 sh 'tar -xzvf apache-tomcat-8.5.24.tar.gz'
                 echo 'Tomact Version is $APACHE-TOMCAT'
@@ -79,18 +87,22 @@ pipeline{
         {
             steps
             {
+                //Copy WAR FROM addressbook/addressbook_main/target/addressbook.war TO apache-tomcat-8.5.24/webapps
                 sh 'sudo cp addressbook/addressbook_main/target/addressbook.war apache-tomcat-8.5.24/webapps'
+                //by using mentioned sudeors user "ubantu" Start Apache Tomcat Server 
                 sh 'sudo runuser -l ubuntu -c "/var/lib/jenkins/workspace/addressbook_pipeline_job/apache-tomcat-8.5.24/bin/startup.sh"'
             }
         }
     }
     post
     {
+        //Trigger Email when BUILD SUCCESS
         success{
             mail to: "ranjithkumark786@gmail.com",
             subject: "Jenkins build is back to normal: $JOB_NAME $BUILD_DISPLAY_NAME",
             body :  "see '<http://13.53.35.96:8080/job/addressbook_pipeline_job/$BUILD_DISPLAY_NAME/>'"
         }
+        //Trigger Email when BUILD FAILURE
         failure{
             mail to: "ranjithkumark786@gmail.com",
             subject: "Build failed in Jenkins: $JOB_NAME $BUILD_DISPLAY_NAME",
