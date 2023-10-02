@@ -1,11 +1,25 @@
 pipeline{
     agent any 
+    environment{
+        MAVEN_VERSION='Apache Maven 3.6.3'
+        // APACHE-TOMCAT='Apache-Tomcat-8.5.24     
+    }
+    parameters {
+        // choice(choices: ['1.1.0', '1.2.0', '1.3.0'], description: 'Select the version to build', name: 'VERSION')
+        booleanParam(defaultValue: true, description: 'Parameter Selected the Execute Maven Job ', name: 'executeMavenStage')
+    }
     stages{
         stage("Installed Maven Build")
         {
+            when{
+                expression{
+                    params.executeMavenStage
+                }
+            }
            steps 
             {
-                eho "Installed Maven Build"
+                echo "Installed Maven Build"
+                echo "Maven Version is $MAVEN_VERSION"
                 //sh 'tar -xvzf /var/lib/jenkins/workspace/test/apache-maven-3.9.4-bin.tar.gz'
             }
         }
@@ -53,6 +67,7 @@ pipeline{
         //     {
         //         sh 'wget https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.24/bin/apache-tomcat-8.5.24.tar.gz'
         //         sh 'tar -xzvf apache-tomcat-8.5.24.tar.gz'
+        //         echo 'Tomact Version is $APACHE-TOMCAT'
         //         sh 'sudo chown -R ubuntu:ubuntu apache-tomcat-8.5.24'
         //         sh 'sudo cp tomcat-users.xml apache-tomcat-8.5.24/conf/tomcat-users.xml'
         //         sh 'sudo cp context.xml apache-tomcat-8.5.24/webapps/manager/META-INF/context.xml'
