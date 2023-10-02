@@ -19,7 +19,7 @@ pipeline{
            steps 
             {
                 echo "Installed Maven Build"
-                echo "Maven params.name is $MAVEN_VERSION"
+                echo "Maven params.VERSION is $MAVEN_VERSION"
                 //sh 'tar -xvzf /var/lib/jenkins/workspace/test/apache-maven-3.9.4-bin.tar.gz'
             }
         }
