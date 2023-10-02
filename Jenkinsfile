@@ -6,7 +6,7 @@ pipeline{
     }
     parameters {
         choice(choices: ['1.1.0', '1.2.0', '1.3.0'], description: 'Select the version to build', name: 'VERSION')
-        booleanParam(defaultValue: true, description: 'Parameter Selected the Execute Maven Job ', name: 'executeMavenStage')
+        booleanParam(defaultValue: true, description: 'executeMavenStage checked then Execute "Installed Maven Build" Stage ', name: 'executeMavenStage')
     }
     stages{
         stage("Installed Maven Build")
