@@ -24,7 +24,7 @@ pipeline{
                 echo "Installed Maven Build"
                 echo "Maven VERSION is $MAVEN_VERSION"
                 sh 'wget https://dlcdn.apache.org/maven/maven-3/3.9.4/binaries/apache-maven-3.9.4-bin.tar.gz'
-                sh 'tar -xvzf /var/lib/jenkins/workspace/test/apache-maven-3.9.4-bin.tar.gz'
+                sh 'tar -xvzf /var/lib/jenkins/workspace/addressbook_pipeline_job/apache-maven-3.9.4-bin.tar.gz'
             }
         }
         stage("Compiling Application")
