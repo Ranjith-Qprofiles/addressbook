@@ -11,6 +11,7 @@ pipeline{
         booleanParam(defaultValue: true, description: 'executeMavenStage checked then Execute Installed Maven Build Stage ', name: 'executeMavenStage')
     }
     stages{
+        //Parallel Stages are (Installed Maven Build,Compiling Application,Testing Application,Packaging Application)
         stage("Parallel Stages")
         {
             parallel
