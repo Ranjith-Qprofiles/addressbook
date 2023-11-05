@@ -2,7 +2,7 @@ pipeline{
     agent any 
     //Declaration of Environment Variables
     environment{
-        MAVEN_VERSION='Apache Maven 3.6.3'
+        MAVEN_VERSION='Apache Maven 3.6.3'     $MAVEN_VERSION
         APACHE_TOMCAT='Apache-Tomcat-8.5.24'
     }
     //Allows the user to provide parameters for a build  
