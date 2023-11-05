@@ -11,6 +11,10 @@ pipeline{
         booleanParam(defaultValue: true, description: 'executeMavenStage checked then Execute Installed Maven Build Stage ', name: 'executeMavenStage')
     }
     stages{
+        stage("Parallel Stages")
+        {
+            parallel
+            {
         stage("Installed Maven Build")
         {
             //When I checkbox "executeMavenStage" then only execute this stage
@@ -51,6 +55,7 @@ pipeline{
                 echo "Testing Application"
             }
         }
+                
         stage("Packaging Application")
         {
             steps
@@ -60,7 +65,9 @@ pipeline{
                 // {
                 //     sh '/var/lib/jenkins/workspace/addressbook_pipeline_job/apache-maven-3.9.4/bin/mvn package'
                 // }
-                echo "Build War File"
+                echo "    Build War File"
+            }
+        }
             }
         }
         stage("Tomcat Prerequisites Installation")
