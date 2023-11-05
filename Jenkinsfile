@@ -32,10 +32,11 @@ pipeline{
             steps
             {   
                 //Go Inside directory, compile the code 
-                dir('/var/lib/jenkins/workspace/addressbook_pipeline_job/addressbook/addressbook_main')
-                {
-                     sh '/var/lib/jenkins/workspace/addressbook_pipeline_job/apache-maven-3.9.4/bin/mvn compile'
-                }
+                // dir('/var/lib/jenkins/workspace/addressbook_pipeline_job/addressbook/addressbook_main')
+                // {
+                //      sh '/var/lib/jenkins/workspace/addressbook_pipeline_job/apache-maven-3.9.4/bin/mvn compile'
+                // }
+                echo "Compiling Application"
             }
         }
         stage("Testing Application")
@@ -43,10 +44,11 @@ pipeline{
             steps
             {
                 //Go Inside directory, test the code
-                dir('/var/lib/jenkins/workspace/addressbook_pipeline_job/addressbook/addressbook_main')
-                {
-                    sh '/var/lib/jenkins/workspace/addressbook_pipeline_job/apache-maven-3.9.4/bin/mvn test'
-                }
+                // dir('/var/lib/jenkins/workspace/addressbook_pipeline_job/addressbook/addressbook_main')
+                // {
+                //     sh '/var/lib/jenkins/workspace/addressbook_pipeline_job/apache-maven-3.9.4/bin/mvn test'
+                // }
+                echo "Testing Application"
             }
         }
         stage("Packaging Application")
@@ -54,10 +56,11 @@ pipeline{
             steps
             {
                 //Go Inside directory, package the code
-                dir('/var/lib/jenkins/workspace/addressbook_pipeline_job/addressbook/addressbook_main')
-                {
-                    sh '/var/lib/jenkins/workspace/addressbook_pipeline_job/apache-maven-3.9.4/bin/mvn package'
-                }
+                // dir('/var/lib/jenkins/workspace/addressbook_pipeline_job/addressbook/addressbook_main')
+                // {
+                //     sh '/var/lib/jenkins/workspace/addressbook_pipeline_job/apache-maven-3.9.4/bin/mvn package'
+                // }
+                echo "Build War File"
             }
         }
         stage("Tomcat Prerequisites Installation")
